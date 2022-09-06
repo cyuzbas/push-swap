@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   swap_functions.c                                   :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: cicekyuzbas <cicekyuzbas@student.codam.      +#+                     */
+/*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/09/02 16:31:19 by cicekyuzbas   #+#    #+#                 */
-/*   Updated: 2022/09/03 15:21:34 by cicekyuzbas   ########   odam.nl         */
+/*   Created: 2022/09/06 12:06:26 by cyuzbas       #+#    #+#                 */
+/*   Updated: 2022/09/06 12:06:30 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

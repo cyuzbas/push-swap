@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/30 16:48:41 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/03 14:26:38 by cicekyuzbas   ########   odam.nl         */
+/*   Updated: 2022/09/06 12:04:08 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void	free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
-void    ft_error()
+void	ft_error(void)
 {
-    ft_putendl_fd("Error", 2);
-    exit (1);
+	ft_putendl_fd("Error", 2);
+	exit (1);
 }
 
 int	is_sorted(t_stack *stack)
