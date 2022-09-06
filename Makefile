@@ -6,7 +6,7 @@
 #    By: cyuzbas <cyuzbas@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/30 16:44:44 by cyuzbas       #+#    #+#                  #
-#    Updated: 2022/08/30 16:47:58 by cyuzbas       ########   odam.nl          #
+#    Updated: 2022/09/03 14:27:29 by cicekyuzbas   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror -g -fsanitize=address
 
 SRCS	=	push_swap.c \
+			push_functions.c swap_functions.c\
+			sort_3_4_5.c \
 			utils.c
 
 HEADER	=	push_swap.h
@@ -30,7 +32,7 @@ LIBFT = libft.a
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-	$(MAKE) -C $(LIBFT_DIR)
+	$(MAKE) bonus -C $(LIBFT_DIR)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT_DIR)/$(LIBFT)
 
 %.o: %.c  $(HEADER)
