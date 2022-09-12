@@ -1,37 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_functions.c                                   :+:    :+:            */
+/*   ft_strcmp.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/09/06 11:59:51 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/12 20:24:38 by cicekyuzbas   ########   odam.nl         */
+/*   Created: 2021/10/04 16:49:57 by cyuzbas       #+#    #+#                 */
+/*   Updated: 2022/09/11 18:30:28 by cicekyuzbas   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-static void	push(t_stack **src, t_stack **dest)
+int	ft_strcmp(char *s1, char *s2)
 {
-	t_stack	*tmp;
-
-	if (*src == NULL)
-		return ;
-	tmp = *src;
-	*src = (*src)->next;
-	(*src)->next = *dest;
-	*dest = tmp;
-}
-
-void	do_pa(t_stack **stack_a, t_stack **stack_b)
-{
-	push(stack_b, stack_a);
-	ft_putendl_fd("pa", 1);
-}
-
-void	do_pb(t_stack **stack_a, t_stack **stack_b)
-{
-	push(stack_a, stack_b);
-	ft_putendl_fd("pb", 1);
+	if (*s1 == *s2)
+		return (1);
+	return (0);
 }

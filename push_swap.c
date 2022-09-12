@@ -6,15 +6,26 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/30 16:48:45 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/06 18:26:26 by cyuzbas       ########   odam.nl         */
+/*   Updated: 2022/09/12 21:27:29 by cicekyuzbas   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	is_valid(char **argv)
+void	printlist(t_stack *head)
 {
-	return (1);
+	t_stack	*current;
+
+	current = head;
+	if (!head)
+		return ;
+	while (current != NULL )
+	{
+		printf("%d", current -> value);
+		current = current->next;
+	}
+	printf("\n");
+	free(current);
 }
 
 int	main(int argc, char **argv)
@@ -31,10 +42,14 @@ int	main(int argc, char **argv)
 		ft_error();
 	stack_b = NULL;
 	if (argc == 3 && !is_sorted(stack_a))
-		ft_sa(stack_a);
+		sa(&stack_a);
 	if (argc == 4)
-		sort_3(stack_a);
-	else if (argc > 4)
-		sort_large(&stack_a, &stack_b);
+		sort_small(&stack_a);
+	fill_index(stack_a, (argc - 1));
+	// else if (argc > 4)
+	// 	sort_large(&stack_a, &stack_b);
+	
+	printlist(stack_a);
+	// printlist(stack_b);
 	return (0);
 }

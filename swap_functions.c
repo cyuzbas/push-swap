@@ -6,13 +6,13 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/06 12:06:26 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/06 12:06:30 by cyuzbas       ########   odam.nl         */
+/*   Updated: 2022/09/11 17:49:23 by cicekyuzbas   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(t_stack *stack)
+static void	ft_swap(t_stack *stack)
 {
 	int	tmp;
 
@@ -28,19 +28,19 @@ static void	swap(t_stack *stack)
 
 void	sa(t_stack **stack_a)
 {
-	swap(*stack_a);
+	ft_swap(*stack_a);
 	ft_putendl_fd("sa", 1);
 }
 
 void	sb(t_stack **stack_b)
 {
-	swap(*stack_b);
+	ft_swap(*stack_b);
 	ft_putendl_fd("sb", 1);
 }
 
 void	ss(t_stack **stack_a, t_stack **stack_b)
 {
-	swap(*stack_a);
-	swap(*stack_b);
+	ft_swap(*stack_a);
+	ft_swap(*stack_b);
 	ft_putendl_fd("ss", 1);
 }

@@ -6,7 +6,7 @@
 #    By: cyuzbas <cyuzbas@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/30 16:44:44 by cyuzbas       #+#    #+#                  #
-#    Updated: 2022/09/06 12:02:59 by cyuzbas       ########   odam.nl          #
+#    Updated: 2022/09/12 21:18:05 by cicekyuzbas   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,10 @@ CC		=	gcc
 
 CFLAGS	=	-Wall -Wextra -Werror -g -fsanitize=address
 
-SRCS	=	push_swap.c \
+SRCS	=	push_swap.c check_input.c\
 			push_functions.c swap_functions.c\
-			sort_3_4_5.c \
+			rotate_functions.c reverse_rotate.c\
+			sort_small.c parse.c \
 			utils.c
 
 HEADER	=	push_swap.h
@@ -38,9 +39,6 @@ $(NAME):	$(OBJS)
 %.o: %.c  $(HEADER)
 	$(CC) -c $< -o $(<:.c=.o)
 
-# bonus:
-# 	$(MAKE) WITH_BONUS=1 all
-
 clean:		
 	$(MAKE) -C $(LIBFT_DIR) clean
 	rm -f $(OBJS)
@@ -51,4 +49,4 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re 

@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_functions.c                                   :+:    :+:            */
+/*   rotate_functions.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/09/06 11:59:51 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/12 20:24:38 by cicekyuzbas   ########   odam.nl         */
+/*   Created: 2022/09/06 18:27:44 by cyuzbas       #+#    #+#                 */
+/*   Updated: 2022/09/12 19:32:52 by cicekyuzbas   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push(t_stack **src, t_stack **dest)
+static void	rotate(t_stack **stack)
 {
 	t_stack	*tmp;
-
-	if (*src == NULL)
-		return ;
-	tmp = *src;
-	*src = (*src)->next;
-	(*src)->next = *dest;
-	*dest = tmp;
+	t_stack	*last;
+	
+	tmp = *stack;
+	*stack = (*stack)->next;
+	last = ft_stacklast(*stack);
+	tmp->next = NULL;
+	last->next = tmp;
 }
 
-void	do_pa(t_stack **stack_a, t_stack **stack_b)
+void	ra(t_stack **stack_a)
 {
-	push(stack_b, stack_a);
-	ft_putendl_fd("pa", 1);
+	rotate(stack_a);
+	ft_putendl_fd("ra", 1);
 }
 
-void	do_pb(t_stack **stack_a, t_stack **stack_b)
+void	rb(t_stack **stack_b)
 {
-	push(stack_a, stack_b);
-	ft_putendl_fd("pb", 1);
+	rotate(stack_b);
+	ft_putendl_fd("rb", 1);
 }
