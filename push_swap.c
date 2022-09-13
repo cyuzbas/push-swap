@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/30 16:48:45 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/12 21:27:29 by cicekyuzbas   ########   odam.nl         */
+/*   Updated: 2022/09/13 14:50:51 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ void	printlist(t_stack *head)
 	while (current != NULL )
 	{
 		printf("%d", current -> value);
+		current = current->next;
+	}
+	printf("\n");
+	current = head;
+	while (current != NULL )
+	{
+		printf("%d", current -> index);
 		current = current->next;
 	}
 	printf("\n");
@@ -46,9 +53,8 @@ int	main(int argc, char **argv)
 	if (argc == 4)
 		sort_small(&stack_a);
 	fill_index(stack_a, (argc - 1));
-	// else if (argc > 4)
-	// 	sort_large(&stack_a, &stack_b);
-	
+	if (argc > 4)
+		sort_large(&stack_a, &stack_b, (argc - 1));
 	printlist(stack_a);
 	// printlist(stack_b);
 	return (0);

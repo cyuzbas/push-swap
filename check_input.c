@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/30 16:48:41 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/11 21:47:44 by cicekyuzbas   ########   odam.nl         */
+/*   Updated: 2022/09/13 10:00:59 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,18 @@ static int	is_overflow(char **argv)
 	while (argv[i])
 	{
 		value = ft_atoi(argv[i]);
-		if (value > max_int || value < min_int)
-				return (true);
+		if (value > MAX_INT || value < MIN_INT)
+			return (TRUE);
 		i++;
 	}
-	return (false);
+	return (FALSE);
 }
 
 static int	is_duplicated(char **argv)
 {
-	int i;
-	int j;
-	int value;
+	int	i;
+	int	j;
+	int	value;
 	int	tmp;
 
 	i = 1;
@@ -44,12 +44,12 @@ static int	is_duplicated(char **argv)
 		{
 			tmp = ft_atoi(argv[j]);
 			if (i != j && value == tmp)
-				return (true);
+				return (TRUE);
 			j++;
 		}
 		i++;
 	}
-	return (false);
+	return (FALSE);
 }
 
 static int	is_number(char *n)
@@ -64,23 +64,23 @@ static int	is_number(char *n)
 	while (n[i] && ft_isdigit(n[i]))
 		i++;
 	if (n[i] && !ft_isdigit(n[i]))
-		return (false);
-	return (true);
+		return (FALSE);
+	return (TRUE);
 }
 
 int	is_valid(char **argv)
 {
-	int i;
+	int	i;
 	int	value;
-	
+
 	i = 1;
 	while (argv[i])
 	{
 		if (!is_number(argv[i]))
-			return (false);
+			return (FALSE);
 		i++;
 	}
 	if (is_duplicated(argv) || is_overflow(argv))
-		return (false);
-	return (true);
+		return (FALSE);
+	return (TRUE);
 }

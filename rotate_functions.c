@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/06 18:27:44 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/12 19:32:52 by cicekyuzbas   ########   odam.nl         */
+/*   Updated: 2022/09/13 09:56:55 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	rotate(t_stack **stack)
 {
 	t_stack	*tmp;
 	t_stack	*last;
-	
+
 	tmp = *stack;
 	*stack = (*stack)->next;
 	last = ft_stacklast(*stack);

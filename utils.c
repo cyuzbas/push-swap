@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/30 16:48:41 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/06 12:04:08 by cyuzbas       ########   odam.nl         */
+/*   Updated: 2022/09/13 11:22:43 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,5 @@ int	is_sorted(t_stack *stack)
 			return (0);
 		stack = stack->next;
 	}
-	return (1);
+	return (TRUE);
 }

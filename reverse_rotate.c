@@ -6,13 +6,13 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/06 18:27:44 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/12 21:18:21 by cicekyuzbas   ########   odam.nl         */
+/*   Updated: 2022/09/13 16:37:36 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *ft_stacksecondlast(t_stack *stack)
+t_stack	*ft_stacksecondlast(t_stack *stack)
 {
 	while (stack && stack->next && stack->next->next != NULL)
 		stack = stack->next;
@@ -24,14 +24,13 @@ static void	reverse_rotate(t_stack **stack)
 	t_stack	*tmp;
 	t_stack	*last;
 	t_stack	*second_last;
-	
-	tmp = *stack;
+
 	last = ft_stacklast(*stack);
 	second_last = ft_stacksecondlast(*stack);
-	second_last->next = NULL;
-	(*stack)->next = tmp;
+	tmp = *stack;
 	*stack = last;
-
+	(*stack)->next = tmp;
+	second_last->next = NULL;
 }
 
 void	rra(t_stack **stack_a)
