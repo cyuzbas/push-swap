@@ -6,11 +6,22 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/06 12:06:12 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/13 16:39:36 by cyuzbas       ########   odam.nl         */
+/*   Updated: 2022/09/13 17:34:30 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	is_sorted(t_stack *stack)
+{
+	while (stack->next != NULL)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (TRUE);
+}
 
 void	sort_small(t_stack **stack)
 {
@@ -25,6 +36,30 @@ void	sort_small(t_stack **stack)
 		&& (*stack)->value < (*stack)->next->next->value)
 		sa(stack);
 }
+
+// static void	shift_stack(t_stack **stack_a, int size)
+// {
+// 	int	lowest_pos;
+// 	int	half_size;
+
+// 	lowest_pos = get_lowest_index_position(stack_a);
+// 	if (lowest_pos > half_size)
+// 	{
+// 		while (lowest_pos < size)
+// 		{
+// 			rra(stack_a);
+// 			lowest_pos++;
+// 		}
+// 	}
+// 	else
+// 	{
+// 		while (lowest_pos > 0)
+// 		{
+// 			ra(stack_a);
+// 			lowest_pos--;
+// 		}
+// 	}
+// }
 
 static void	pre_sort(t_stack **stack_a, t_stack **stack_b, int size)
 {
@@ -54,10 +89,7 @@ static void	pre_sort(t_stack **stack_a, t_stack **stack_b, int size)
 
 void	sort_large(t_stack **stack_a, t_stack **stack_b, int size)
 {
-	printf("sort_large\n");
 	pre_sort(stack_a, stack_b, size);
-	printf("sort_large after presort\n");
-	// sort_small(stack_a);
 	// while (*stack_b)
 	// {
 	// 	get_target_position(stack_a, stack_b);
@@ -65,5 +97,5 @@ void	sort_large(t_stack **stack_a, t_stack **stack_b, int size)
 	// 	do_cheapest_move(stack_a, stack_b);
 	// }
 	// if (!is_sorted(*stack_a))
-	// 	shift_stack(stack_a);
+	// 	shift_stack(stack_a, size);
 }

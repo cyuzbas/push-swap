@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/30 16:48:45 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/13 14:50:51 by cyuzbas       ########   odam.nl         */
+/*   Updated: 2022/09/13 16:48:14 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ int	main(int argc, char **argv)
 	if (argc > 4)
 		sort_large(&stack_a, &stack_b, (argc - 1));
 	printlist(stack_a);
-	// printlist(stack_b);
+	printlist(stack_b);
 	return (0);
 }
