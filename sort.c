@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/06 12:06:12 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/13 17:34:30 by cyuzbas       ########   odam.nl         */
+/*   Updated: 2022/09/15 17:08:26 by cicekyuzbas   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,29 +37,32 @@ void	sort_small(t_stack **stack)
 		sa(stack);
 }
 
-// static void	shift_stack(t_stack **stack_a, int size)
-// {
-// 	int	lowest_pos;
-// 	int	half_size;
+static void	final_rotate(t_stack **stack_a)
+{
+	int	lowest_pos;
+	int	size;
+	int	half_size;
 
-// 	lowest_pos = get_lowest_index_position(stack_a);
-// 	if (lowest_pos > half_size)
-// 	{
-// 		while (lowest_pos < size)
-// 		{
-// 			rra(stack_a);
-// 			lowest_pos++;
-// 		}
-// 	}
-// 	else
-// 	{
-// 		while (lowest_pos > 0)
-// 		{
-// 			ra(stack_a);
-// 			lowest_pos--;
-// 		}
-// 	}
-// }
+	lowest_pos = lowest_index_order(stack_a);
+	size = stack_size(*stack_a);
+	half_size = size / 2;
+	if (lowest_pos > half_size)
+	{
+		while (lowest_pos < size)
+		{
+			rra(stack_a);
+			lowest_pos++;
+		}
+	}
+	else
+	{
+		while (lowest_pos > 0)
+		{
+			ra(stack_a);
+			lowest_pos--;
+		}
+	}
+}
 
 static void	pre_sort(t_stack **stack_a, t_stack **stack_b, int size)
 {
@@ -68,6 +71,7 @@ static void	pre_sort(t_stack **stack_a, t_stack **stack_b, int size)
 
 	pushed = 0;
 	i = 0;
+	size = stack_size(*stack_a);
 	while (size > 6 && i < size && pushed < size / 2)
 	{
 		if ((*stack_a)->index <= size / 2)
@@ -90,12 +94,12 @@ static void	pre_sort(t_stack **stack_a, t_stack **stack_b, int size)
 void	sort_large(t_stack **stack_a, t_stack **stack_b, int size)
 {
 	pre_sort(stack_a, stack_b, size);
-	// while (*stack_b)
-	// {
-	// 	get_target_position(stack_a, stack_b);
-	// 	get_cost(stack_a, stack_b);
-	// 	do_cheapest_move(stack_a, stack_b);
-	// }
-	// if (!is_sorted(*stack_a))
-	// 	shift_stack(stack_a, size);
+	while (*stack_b)
+	{
+		fill_target(stack_a, stack_b, size);
+		calculate_move(stack_a, stack_b);
+		fastest_move(stack_a, stack_b);
+	}
+	if (!is_sorted(*stack_a))
+		final_rotate(stack_a);
 }

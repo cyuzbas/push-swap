@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/21 20:10:02 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/11 21:27:53 by cicekyuzbas   ########   odam.nl         */
+/*   Updated: 2022/09/15 15:52:56 by cicekyuzbas   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
+int			ft_abs(int nb);
 long		ft_atoi(const char *str);
 void		ft_bzero(void *s, size_t n);
 void		*ft_calloc(size_t count, size_t size);

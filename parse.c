@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/06 18:27:44 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/13 14:09:32 by cyuzbas       ########   odam.nl         */
+/*   Updated: 2022/09/15 16:01:41 by cicekyuzbas   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ t_stack	*ft_stacknew(int value)
 	new->value = value;
 	new->index = 0;
 	new->order = -1;
-	new->target_ord = -1;
-	new->cost_a = -1;
-	new->cost_b = -1;
+	new->target = -1;
+	new->move_a = -1;
+	new->move_b = -1;
 	new->next = NULL;
 	return (new);
 }
@@ -133,27 +133,27 @@ t_stack	*fill_stack(int argc, char **argv)
 
 void	fill_index(t_stack *stack_a, int size)
 {
-	t_stack	*ptr;
+	t_stack	*tmp;
 	t_stack	*max;
 	int		min;
 
 	while (size > 0)
 	{
-		ptr = stack_a;
+		tmp = stack_a;
 		min = MIN_INT;
 		max = NULL;
-		while (ptr)
+		while (tmp)
 		{
-			if (ptr->value == MIN_INT && ptr->index == 0)
-				ptr->index = 1;
-			if (ptr->value > min && ptr->index == 0)
+			if (tmp->value == MIN_INT && tmp->index == 0)
+				tmp->index = 1;
+			if (tmp->value > min && tmp->index == 0)
 			{
-				min = ptr->value;
-				max = ptr;
-				ptr = stack_a;
+				min = tmp->value;
+				max = tmp;
+				tmp = stack_a;
 			}
 			else
-				ptr = ptr->next;
+				tmp = tmp->next;
 		}
 		if (max != NULL)
 			max->index = size;

@@ -6,7 +6,7 @@
 #    By: cyuzbas <cyuzbas@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/30 16:44:44 by cyuzbas       #+#    #+#                  #
-#    Updated: 2022/09/13 16:26:51 by cyuzbas       ########   odam.nl          #
+#    Updated: 2022/09/14 16:25:33 by cicekyuzbas   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,9 @@ CFLAGS	=	-Wall -Wextra -Werror
 # -g -fsanitize=address
 
 SRCS	=	push_swap.c check_input.c\
-			push_functions.c swap_functions.c\
-			rotate_functions.c reverse_rotate.c\
-			parse.c sort.c\
+			push.c swap.c calculate.c \
+			rotate.c reverse_rotate.c\
+			parse.c order.c sort.c\
 			utils.c
 
 HEADER	=	push_swap.h

@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/30 16:48:48 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/13 14:43:07 by cyuzbas       ########   odam.nl         */
+/*   Updated: 2022/09/15 16:37:22 by cicekyuzbas   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@
 
 typedef struct s_stack
 {
-	int				value;
-	int				index;
-	int				order;
-	int				target_ord;
-	int				cost_a;
-	int				cost_b;
+	int		value;
+	int		index;
+	int		order;
+	int		target;
+	int		move_a;
+	int		move_b;
 	struct s_stack	*next;
 }				t_stack;
 
@@ -37,6 +37,7 @@ int		is_sorted(t_stack *stack);
 int		is_valid(char **argv);
 void	ft_error(void);
 void	free_stack(t_stack **stack);
+int		stack_size(t_stack	*stack);
 
 void	sort_small(t_stack **stack);
 void	sort_large(t_stack **stack_a, t_stack **stack_b, int size);
@@ -47,12 +48,21 @@ t_stack	*ft_stacknew(int value);
 t_stack	*ft_stacklast(t_stack *stack);
 void	ft_stadd_back(t_stack **stack, int value);
 
+void	fill_target(t_stack **stack_a, t_stack **stack_b, int size);
+void	calculate_move(t_stack **stack_a, t_stack **stack_b);
+void	fastest_move(t_stack **stack_a, t_stack **stack_b);
+int		lowest_index_order(t_stack **stack);
+
+void	printlist(t_stack *head);
+
 void	sa(t_stack **stack_a);
-void	ra(t_stack **stack_a);
-void	rb(t_stack **stack_b);
 void	pa(t_stack **stack_a, t_stack **stack_b);
 void	pb(t_stack **stack_a, t_stack **stack_b);
+void	ra(t_stack **stack_a);
+void	rb(t_stack **stack_b);
+void	rr(t_stack **stack_a, t_stack **stack_b);
 void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
+void	rrr(t_stack **stack_a, t_stack **stack_b);
 
 #endif

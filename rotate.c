@@ -1,49 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   utils.c                                            :+:    :+:            */
+/*   rotate.c                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/08/30 16:48:41 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/14 16:43:10 by cicekyuzbas   ########   odam.nl         */
+/*   Created: 2022/09/06 18:27:44 by cyuzbas       #+#    #+#                 */
+/*   Updated: 2022/09/15 16:01:10 by cicekyuzbas   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_stack(t_stack **stack)
+static void	rotate(t_stack **stack)
 {
 	t_stack	*tmp;
+	t_stack	*last;
 
-	if (!stack || !(*stack))
-		return ;
-	while (*stack)
-	{
-		tmp = (*stack)->next;
-		free(*stack);
-		*stack = tmp;
-	}
-	*stack = NULL;
+	tmp = *stack;
+	*stack = (*stack)->next;
+	last = ft_stacklast(*stack);
+	tmp->next = NULL;
+	last->next = tmp;
 }
 
-void	ft_error(void)
+void	ra(t_stack **stack_a)
 {
-	ft_putendl_fd("Error", 2);
-	exit (1);
+	rotate(stack_a);
+	ft_putendl_fd("ra", 1);
 }
 
-int	stack_size(t_stack	*stack)
+void	rb(t_stack **stack_b)
 {
-	int	size;
+	rotate(stack_b);
+	ft_putendl_fd("rb", 1);
+}
 
-	size = 0;
-	if (!stack)
-		return (0);
-	while (stack)
-	{
-		stack = stack->next;
-		size++;
-	}
-	return (size);
+void	rr(t_stack **stack_a, t_stack **stack_b)
+{
+	rotate(stack_a);
+	rotate(stack_b);
+	ft_putendl_fd("rr", 1);
 }

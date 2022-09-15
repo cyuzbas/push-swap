@@ -1,37 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   rotate_functions.c                                 :+:    :+:            */
+/*   ft_abs.c                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/09/06 18:27:44 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/13 09:56:55 by cyuzbas       ########   odam.nl         */
+/*   Created: 2021/10/04 14:18:29 by cyuzbas       #+#    #+#                 */
+/*   Updated: 2022/09/15 15:52:46 by cicekyuzbas   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-static void	rotate(t_stack **stack)
+int	ft_abs(int nb)
 {
-	t_stack	*tmp;
-	t_stack	*last;
-
-	tmp = *stack;
-	*stack = (*stack)->next;
-	last = ft_stacklast(*stack);
-	tmp->next = NULL;
-	last->next = tmp;
-}
-
-void	ra(t_stack **stack_a)
-{
-	rotate(stack_a);
-	ft_putendl_fd("ra", 1);
-}
-
-void	rb(t_stack **stack_b)
-{
-	rotate(stack_b);
-	ft_putendl_fd("rb", 1);
+	if (nb < 0)
+		return (nb * -1);
+	return (nb);
 }

@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/06 18:27:44 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/13 16:37:36 by cyuzbas       ########   odam.nl         */
+/*   Updated: 2022/09/15 15:59:25 by cicekyuzbas   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,11 @@ void	rrb(t_stack **stack_b)
 {
 	reverse_rotate(stack_b);
 	ft_putendl_fd("rrb", 1);
+}
+
+void	rrr(t_stack **stack_a, t_stack **stack_b)
+{
+	reverse_rotate(stack_a);
+	reverse_rotate(stack_b);
+	ft_putendl_fd("rrr", 1);
 }

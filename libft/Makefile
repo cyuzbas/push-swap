@@ -6,7 +6,7 @@
 #    By: cyuzbas <cyuzbas@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/10/11 12:51:21 by cyuzbas       #+#    #+#                  #
-#    Updated: 2022/09/11 18:34:04 by cicekyuzbas   ########   odam.nl          #
+#    Updated: 2022/09/15 15:53:03 by cicekyuzbas   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS    	=	ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c \
 				ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c \
 				ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c \
 				ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c \
-				ft_strcmp.c ft_tolower.c ft_toupper.c
+				ft_strcmp.c ft_tolower.c ft_toupper.c ft_abs.c
 
 BONUS		=	ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
 				ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
