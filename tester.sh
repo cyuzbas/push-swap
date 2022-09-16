@@ -74,3 +74,4 @@ ARG=`ruby -e "puts (1..500).to_a.shuffle.join(' ')"`; ./push_swap $ARG | wc -l
 echo -e "${GREEN}Checker:${NORMAL}"
 ARG=`ruby -e "puts (1..500).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checker_MAC $ARG
  #echo -e "${RED} digits ${ARG}"
+ 

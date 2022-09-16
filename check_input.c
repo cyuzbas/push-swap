@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/30 16:48:41 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/13 10:00:59 by cyuzbas       ########   odam.nl         */
+/*   Updated: 2022/09/16 19:47:18 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ static int	is_number(char *n)
 int	is_valid(char **argv)
 {
 	int	i;
-	int	value;
 
 	i = 1;
 	while (argv[i])

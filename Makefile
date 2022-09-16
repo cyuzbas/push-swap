@@ -1,53 +1,61 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
-#                                                      +:+                     #
-#    By: cyuzbas <cyuzbas@student.codam.nl>           +#+                      #
-#                                                    +#+                       #
-#    Created: 2022/08/30 16:44:44 by cyuzbas       #+#    #+#                  #
-#    Updated: 2022/09/16 18:31:53 by cyuzbas       ########   odam.nl          #
-#                                                                              #
-# **************************************************************************** #
+# Colors
+GREEN	= \033[38;5;2m
+NORMAL	= \033[38;5;255m
+RED		= \033[38;5;1m
+BLUE	= \033[38;5;4m
+YELLOW	= \033[1;33m
 
-NAME	=	push_swap
+# Compiler settings
+NAME	= push_swap
+CC		= gcc
+FLAGS	= -Wall -Wextra -Werror
 
-CC		=	gcc
+# Source, tests, header and object files
+SRC_FILES		=	check_input.c\
+					push.c\
+					swap.c\
+					push_swap.c\
+					calculate.c\
+					rotate.c\
+					reverse_rotate.c\
+					parse.c\
+					order.c\
+					sort.c\
+					utils.c
+HEADER_FILES	=  push_swap.h
+OBJ_DIR			= obj
+OBJ				= $(SRC_FILES:%.c=$(OBJ_DIR)/%.o)
 
-CFLAGS	=	-Wall -Wextra -Werror
-# CFLAGS	=	-Wall -Wextra -Werror -g -fsanitize=address
-
-SRCS	=	push_swap.c check_input.c\
-			push.c swap.c calculate.c \
-			rotate.c reverse_rotate.c\
-			parse.c order.c sort.c\
-			utils.c
-
-HEADER	=	push_swap.h
-
-OBJS	=	$(SRCS:.c=.o)
-
+#Libft
 LIBFT_DIR = libft
 
 LIBFT = libft.a
 
-all:		$(NAME)
+# Build release
+all: $(OBJ_DIR) $(LIBFT) $(NAME) 
 
-$(NAME):	$(OBJS)
-	$(MAKE) bonus -C $(LIBFT_DIR)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT_DIR)/$(LIBFT)
+$(LIBFT):
+	@make -C $(LIBFT_DIR) bonus > /dev/null
+# Build normal
+$(OBJ_DIR):
+	@mkdir -p $@
 
-%.o: %.c  $(HEADER)
-	$(CC) -c $< -o $(<:.c=.o)
+$(NAME): $(OBJ)
+	$(CC) $(FLAGS) $^ -o $@ $(LIBFT_DIR)/$(LIBFT)
+	@echo "$(GREEN) Created push_swap executable.$(NORMAL)"
 
-clean:		
-	$(MAKE) -C $(LIBFT_DIR) clean
-	rm -f $(OBJS)
+$(OBJ): $(OBJ_DIR)/%.o : %.c $(HEADER_FILES)
+	@mkdir -p $(@D)
+	@$(CC) $(FLAGS) -c $< -o $@
 
-fclean:		clean
-	rm -f $(NAME)
-	$(MAKE) -C $(LIBFT_DIR) fclean
-
-re:			fclean all
-
-.PHONY: all clean fclean re 
+clean:
+	@rm -rdf $(OBJ_DIR)
+	@make -C $(LIBFT_DIR) clean > /dev/null
+	@echo "$(RED) Deleted all object files.$(NORMAL)"
+	
+fclean: clean
+	@rm -f $(NAME)
+	@make -C $(LIBFT_DIR) clean > /dev/null
+	@echo "$(RED) Deleted all executables.$(NORMAL)"
+re: clean fclean all
+.PHONY: clean fclean re
