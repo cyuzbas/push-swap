@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/30 16:48:45 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/16 12:12:06 by cyuzbas       ########   odam.nl         */
+/*   Updated: 2022/09/16 18:08:11 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,29 @@ void	printlist(t_stack *head)
 
 	current = head;
 	if (!head)
+	{
+		printf("bos\n");
 		return ;
+	}
 	while (current != NULL )
 	{
-		printf("%d", current -> value);
+		printf("%d ", current -> value);
 		current = current->next;
 	}
-	printf("\n");
+	printf("\nindex a = ");
 	current = head;
 	while (current != NULL )
 	{
-		printf("%d", current -> index);
+		printf("%d ", current -> index);
 		current = current->next;
 	}
 	printf("\n");
 	free(current);
 }
+void    check_leaks()
+ {
+     system ("leaks push_swap");
+ }
 
 int	main(int argc, char **argv)
 {
@@ -48,17 +55,19 @@ int	main(int argc, char **argv)
 	if (stack_a == NULL)
 		ft_error();
 	stack_b = NULL;
-	if (argc == 3 && !is_sorted(stack_a))
-		sa(&stack_a);
-	if (argc == 4)
+	if ((argc == 3 || argc == 4) && !is_sorted(stack_a))
 	{
-		sort_small(&stack_a);
+		if (argc == 3 && !is_sorted(stack_a))
+			sa(&stack_a);
+		if (argc == 4)
+			sort_small(&stack_a);
 		return (0);
 	}
-	fill_index(stack_a, (argc - 1));
-	if (argc > 4)
+	fill_index(stack_a, (argc - 1), MIN_INT);
+	if (argc > 4 && !is_sorted(stack_a))
 		sort_large(&stack_a, &stack_b, (argc - 1));
-	printlist(stack_a);
-	printlist(stack_b);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
+	atexit(check_leaks);
 	return (0);
 }

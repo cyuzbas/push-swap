@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/06 12:06:12 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/16 11:19:47 by cyuzbas       ########   odam.nl         */
+/*   Updated: 2022/09/16 16:13:38 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ static void	pre_sort(t_stack **stack_a, t_stack **stack_b, int size)
 		if ((*stack_a)->index <= size / 2)
 		{
 			pb(stack_a, stack_b);
+
 			pushed++;
 		}
 		else
@@ -86,6 +87,10 @@ static void	pre_sort(t_stack **stack_a, t_stack **stack_b, int size)
 	while (size - pushed > 3)
 	{
 		pb(stack_a, stack_b);
+					printf("stack_a = ");
+			printlist(*stack_a);
+			printf("stack_b = ");
+			printlist(*stack_b);
 		pushed++;
 	}
 	sort_small(&(*stack_a));
@@ -96,7 +101,7 @@ void	sort_large(t_stack **stack_a, t_stack **stack_b, int size)
 	pre_sort(stack_a, stack_b, size);
 	while (*stack_b)
 	{
-		fill_target(stack_a, stack_b, size);
+		fill_target(stack_a, stack_b);
 		calculate_move(stack_a, stack_b);
 		fastest_move(stack_a, stack_b);
 	}

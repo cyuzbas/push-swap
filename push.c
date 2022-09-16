@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_functions.c                                   :+:    :+:            */
+/*   push.c                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/06 11:59:51 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/13 16:26:18 by cyuzbas       ########   odam.nl         */
+/*   Updated: 2022/09/16 16:09:33 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,13 @@ static void	push(t_stack **src, t_stack **dest)
 		return ;
 	tmp = (*src)->next;
 	(*src)->next = *dest;
+	if ((*src)->next)
+		printf("src %d \n",(*src)->next->value);
+	if ((*dest))
+		printf("dst %d\n", (*dest)->value);
 	*dest = *src;
+	if ((*dest)->next)
+		printf("dest next %d\n", (*dest)->next->value);
 	*src = tmp;
 }
 

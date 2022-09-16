@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/06 18:27:44 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/15 16:01:41 by cicekyuzbas   ########   odam.nl         */
+/*   Updated: 2022/09/16 18:15:49 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,69 +73,10 @@ t_stack	*fill_stack(int argc, char **argv)
 	return (stack_a);
 }
 
-// void	fill_index(t_stack *stack_a, int size)
-// {
-// 	t_stack	*tmp;
-// 	t_stack	*next_max;
-// 	int		current;
-// 	int		i;
-
-// 	next_max = NULL;
-// 	tmp = stack_a;
-// 	while (size > 0)
-// 	{
-// 		current = MIN_INT;
-// 		i = 0;
-// 		while (tmp && tmp->next && i < (size - 1))
-// 		{
-// 			if (tmp->value > tmp->next->value)
-// 			{
-// 				next_max = tmp;
-// 			}
-// 			tmp = tmp->next;
-// 			printf("afterloop- size = %d, value = %d, index = %d\n", size, tmp->value, tmp->index);
-// 			i++;
-// 		}
-// 		if (next_max != NULL)
-// 			next_max->index = size;
-// 		printf("size = %d, value = %d, index = %d\n", size, tmp->value, tmp->index);
-// 		size--;
-// 		tmp = tmp->next;
-// 	}
-// }
-
-// void	fill_index(t_stack *stack_a, int size)
-// {
-// 	t_stack	*tmp;
-// 	t_stack	*min;
-// 	int		new;
-// 	int		i;
-
-// 	i = 1;
-// 	while (i <= size)
-// 	{
-// 		tmp = stack_a;
-// 		new = MAX_INT;
-// 		min = NULL;
-// 		while (tmp)
-// 		{
-// 			if (tmp->value < new && tmp->index == 0)
-// 			{
-// 				new = tmp->value;
-// 				min = tmp;
-// 				tmp = 
-// 			}
-// 		}
-		
-// 	}
-		
-// }
-
-void	fill_index(t_stack *stack_a, int size)
+void	fill_index(t_stack *stack_a, int size, int min)
 {
 	t_stack	*tmp;
 	t_stack	*max;
-	int		min;
 
 	while (size > 0)
 	{

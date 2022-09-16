@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/30 16:48:48 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/16 11:41:53 by cyuzbas       ########   odam.nl         */
+/*   Updated: 2022/09/16 16:12:46 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,21 @@ void	ft_error(void);
 void	free_stack(t_stack **stack);
 int		stack_size(t_stack	*stack);
 
+void	printlist(t_stack *head);
+
 void	sort_small(t_stack **stack);
 void	sort_large(t_stack **stack_a, t_stack **stack_b, int size);
 
-void	fill_index(t_stack *stack_a, int size);
+void	fill_index(t_stack *stack_a, int size, int min);
 t_stack	*fill_stack(int argc, char **argv);
 t_stack	*ft_stacknew(int value);
 t_stack	*ft_stacklast(t_stack *stack);
 void	ft_stadd_back(t_stack **stack, int value);
 
-void	fill_target(t_stack **stack_a, t_stack **stack_b, int size);
+void	fill_target(t_stack **stack_a, t_stack **stack_b);
 void	calculate_move(t_stack **stack_a, t_stack **stack_b);
 void	fastest_move(t_stack **stack_a, t_stack **stack_b);
 int		lowest_index_order(t_stack **stack);
-
-void	printlist(t_stack *head);
 
 void	sa(t_stack **stack_a);
 void	pa(t_stack **stack_a, t_stack **stack_b);

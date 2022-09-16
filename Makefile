@@ -6,7 +6,7 @@
 #    By: cyuzbas <cyuzbas@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/30 16:44:44 by cyuzbas       #+#    #+#                  #
-#    Updated: 2022/09/16 11:21:17 by cyuzbas       ########   odam.nl          #
+#    Updated: 2022/09/16 18:08:30 by cyuzbas       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME	=	push_swap
 
 CC		=	gcc
 
-CFLAGS	=	-Wall -Wextra -Werror 
-# -g -fsanitize=address
+CFLAGS	=	-Wall -Wextra -Werror
+# CFLAGS	=	-Wall -Wextra -Werror -g -fsanitize=address
 
 SRCS	=	push_swap.c check_input.c\
 			push.c swap.c calculate.c \

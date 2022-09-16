@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/06 12:06:26 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/16 12:04:47 by cyuzbas       ########   odam.nl         */
+/*   Updated: 2022/09/16 15:03:39 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	lowest_index_order(t_stack **stack)
 	return (lowest_pos);
 }
 
-void	fill_target(t_stack **stack_a, t_stack **stack_b, int size)
+void	fill_target(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*tmp_b;
 	int		target_order;
@@ -87,13 +87,11 @@ void	fill_target(t_stack **stack_a, t_stack **stack_b, int size)
 	current_order(stack_a);
 	current_order(stack_b);
 	target_order = 0;
-	size++;
 	while (tmp_b)
 	{
 		target_order = calculate_target(stack_a, \
 						tmp_b->index, MAX_INT, target_order);
 		tmp_b->target = target_order;
-		// printf("value= %d order= %d target= %d\n", tmp_b->value, tmp_b->order, tmp_b->target);
 		tmp_b = tmp_b->next;
 	}
 }

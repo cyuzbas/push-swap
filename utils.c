@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/30 16:48:41 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/16 12:02:25 by cyuzbas       ########   odam.nl         */
+/*   Updated: 2022/09/16 12:29:44 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	free_stack(t_stack **stack)
 
 void	ft_error(void)
 {
-	ft_putendl_fd("Error", 2);
+	ft_putendl_fd("Error\n", 2);
 	exit (1);
 }
 
