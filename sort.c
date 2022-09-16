@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/06 12:06:12 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/16 16:13:38 by cyuzbas       ########   odam.nl         */
+/*   Updated: 2022/09/16 19:14:03 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,10 @@ static void	pre_sort(t_stack **stack_a, t_stack **stack_b, int size)
 	while (size - pushed > 3)
 	{
 		pb(stack_a, stack_b);
-					printf("stack_a = ");
-			printlist(*stack_a);
-			printf("stack_b = ");
-			printlist(*stack_b);
+					// printf("stack_a = ");
+			// printlist(*stack_a);
+			// printf("stack_b = ");
+			// printlist(*stack_b);
 		pushed++;
 	}
 	sort_small(&(*stack_a));

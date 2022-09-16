@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/06 18:27:44 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/16 18:15:49 by cyuzbas       ########   odam.nl         */
+/*   Updated: 2022/09/16 19:13:04 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ void	ft_stadd_back(t_stack **stack, int value)
 
 	next = ft_stacknew(value);
 	if (!next)
-		return ;
+	{
+		free_stack(stack);
+		ft_error();
+	}	
 	if (!*stack)
 	{
 		*stack = next;
@@ -65,7 +68,12 @@ t_stack	*fill_stack(int argc, char **argv)
 	{
 		value = ft_atoi(argv[i]);
 		if (i == 1)
+		{
+			//burda null donerse program calismaya devame diyor. Bunu engelledik!
 			stack_a = ft_stacknew(value);
+			if (!stack_a)
+				return (NULL);
+		}
 		else
 			ft_stadd_back(&stack_a, value);
 		i++;

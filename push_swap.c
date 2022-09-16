@@ -6,41 +6,41 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/30 16:48:45 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/16 18:08:11 by cyuzbas       ########   odam.nl         */
+/*   Updated: 2022/09/16 19:13:46 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	printlist(t_stack *head)
-{
-	t_stack	*current;
+// void	printlist(t_stack *head)
+// {
+// 	t_stack	*current;
 
-	current = head;
-	if (!head)
-	{
-		printf("bos\n");
-		return ;
-	}
-	while (current != NULL )
-	{
-		printf("%d ", current -> value);
-		current = current->next;
-	}
-	printf("\nindex a = ");
-	current = head;
-	while (current != NULL )
-	{
-		printf("%d ", current -> index);
-		current = current->next;
-	}
-	printf("\n");
-	free(current);
-}
-void    check_leaks()
- {
-     system ("leaks push_swap");
- }
+// 	current = head;
+// 	if (!head)
+// 	{
+// 		printf("bos\n");
+// 		return ;
+// 	}
+// 	while (current != NULL )
+// 	{
+// 		printf("%d ", current -> value);
+// 		current = current->next;
+// 	}
+// 	printf("\nindex a = ");
+// 	current = head;
+// 	while (current != NULL )
+// 	{
+// 		printf("%d ", current -> index);
+// 		current = current->next;
+// 	}
+// 	printf("\n");
+// 	free(current);
+// }
+// void    check_leaks()
+//  {
+//      system ("leaks push_swap");
+//  }
 
 int	main(int argc, char **argv)
 {
@@ -55,19 +55,15 @@ int	main(int argc, char **argv)
 	if (stack_a == NULL)
 		ft_error();
 	stack_b = NULL;
-	if ((argc == 3 || argc == 4) && !is_sorted(stack_a))
-	{
-		if (argc == 3 && !is_sorted(stack_a))
-			sa(&stack_a);
-		if (argc == 4)
-			sort_small(&stack_a);
-		return (0);
-	}
+	if (argc == 3 && !is_sorted(stack_a))
+		sa(&stack_a);
+	if (argc == 4 && !is_sorted(stack_a))
+		sort_small(&stack_a);
 	fill_index(stack_a, (argc - 1), MIN_INT);
 	if (argc > 4 && !is_sorted(stack_a))
 		sort_large(&stack_a, &stack_b, (argc - 1));
 	free_stack(&stack_a);
 	free_stack(&stack_b);
-	atexit(check_leaks);
+	// atexit(check_leaks);
 	return (0);
 }
