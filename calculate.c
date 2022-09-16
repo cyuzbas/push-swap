@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/06 12:06:26 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/15 16:40:01 by cicekyuzbas   ########   odam.nl         */
+/*   Updated: 2022/09/16 11:51:02 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,5 +118,4 @@ void	calculate_move(t_stack **stack_a, t_stack **stack_b)
 			tmp_b->move_a = (size_a - tmp_b->target) * -1;
 		tmp_b = tmp_b->next;
 	}
-	// printf("move_a")
 }

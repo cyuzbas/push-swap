@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/30 16:48:45 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/15 14:25:13 by cicekyuzbas   ########   odam.nl         */
+/*   Updated: 2022/09/16 12:12:06 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	
+
 	if (argc < 2)
 		return (0);
 	if (!is_valid(argv))
@@ -51,7 +51,10 @@ int	main(int argc, char **argv)
 	if (argc == 3 && !is_sorted(stack_a))
 		sa(&stack_a);
 	if (argc == 4)
+	{
 		sort_small(&stack_a);
+		return (0);
+	}
 	fill_index(stack_a, (argc - 1));
 	if (argc > 4)
 		sort_large(&stack_a, &stack_b, (argc - 1));

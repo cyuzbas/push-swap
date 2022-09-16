@@ -6,17 +6,17 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/04 14:18:29 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/15 15:49:38 by cicekyuzbas   ########   odam.nl         */
+/*   Updated: 2022/09/16 11:20:54 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int	i;
-	int	sign;
-	long number;
+	int		i;
+	int		sign;
+	long	number;
 
 	i = 0;
 	sign = 1;

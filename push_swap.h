@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/30 16:48:48 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/15 16:37:22 by cicekyuzbas   ########   odam.nl         */
+/*   Updated: 2022/09/16 11:41:53 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@
 
 typedef struct s_stack
 {
-	int		value;
-	int		index;
-	int		order;
-	int		target;
-	int		move_a;
-	int		move_b;
+	int				value;
+	int				index;
+	int				order;
+	int				target;
+	int				move_a;
+	int				move_b;
 	struct s_stack	*next;
 }				t_stack;
 

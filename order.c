@@ -6,39 +6,39 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/06 12:06:26 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/15 17:05:13 by cicekyuzbas   ########   odam.nl         */
+/*   Updated: 2022/09/16 12:04:47 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int calculate_target(t_stack **a, int b_idx, int t_idx, int t_ord, int size)
+static int	calculate_target(t_stack **a, int b_idx, int t_idx, int t_ord)
 {
 	t_stack	*tmp_a;
 
 	tmp_a = *a;
 	while (tmp_a)
 	{
-		if (tmp_a->index > b_idx && tmp_a->index > t_idx)
+		if (tmp_a->index > b_idx && tmp_a->index < t_idx)
 		{
 			t_idx = tmp_a->index;
 			t_ord = tmp_a->order;
 		}
 		tmp_a = tmp_a->next;
 	}
-	if (t_idx != size)
-		return(t_ord);
+	if (t_idx != MAX_INT)
+		return (t_ord);
 	tmp_a = *a;
 	while (tmp_a)
 	{
-		if (tmp_a->index > t_idx)
+		if (tmp_a->index < t_idx)
 		{
 			t_idx = tmp_a->index;
 			t_ord = tmp_a->order;
 		}
 		tmp_a = tmp_a->next;
 	}	
-	return(t_ord);
+	return (t_ord);
 }
 
 static void	current_order(t_stack **stack)
@@ -54,7 +54,6 @@ static void	current_order(t_stack **stack)
 		tmp = tmp->next;
 		i++;
 	}
-	
 }
 
 int	lowest_index_order(t_stack **stack)
@@ -83,18 +82,18 @@ void	fill_target(t_stack **stack_a, t_stack **stack_b, int size)
 {
 	t_stack	*tmp_b;
 	int		target_order;
-	
+
 	tmp_b = *stack_b;
 	current_order(stack_a);
 	current_order(stack_b);
 	target_order = 0;
 	size++;
-	while(tmp_b)
+	while (tmp_b)
 	{
 		target_order = calculate_target(stack_a, \
-						tmp_b->index, size, target_order, size);
+						tmp_b->index, MAX_INT, target_order);
 		tmp_b->target = target_order;
-		printf("value= %d index= %d target= %d\n", tmp_b->value, tmp_b->index, tmp_b->target);
+		// printf("value= %d order= %d target= %d\n", tmp_b->value, tmp_b->order, tmp_b->target);
 		tmp_b = tmp_b->next;
 	}
 }
