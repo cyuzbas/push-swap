@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/06 18:27:44 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/16 19:13:04 by cyuzbas       ########   odam.nl         */
+/*   Updated: 2022/09/19 18:24:33 by cicekyuzbas   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	fill_index(t_stack *stack_a, int size, int min)
 			{
 				min = tmp->value;
 				max = tmp;
-				tmp = stack_a;
+				tmp = tmp->next;
 			}
 			else
 				tmp = tmp->next;

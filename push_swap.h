@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/30 16:48:48 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/16 19:14:11 by cyuzbas       ########   odam.nl         */
+/*   Updated: 2022/09/19 18:07:11 by cicekyuzbas   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_error(void);
 void	free_stack(t_stack **stack);
 int		stack_size(t_stack	*stack);
 
-// void	printlist(t_stack *head);
+void	printlist(t_stack *head);
 
 void	sort_small(t_stack **stack);
 void	sort_large(t_stack **stack_a, t_stack **stack_b, int size);
