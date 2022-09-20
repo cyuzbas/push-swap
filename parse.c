@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/06 18:27:44 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/19 18:24:33 by cicekyuzbas   ########   odam.nl         */
+/*   Updated: 2022/09/20 12:02:30 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ t_stack	*fill_stack(int argc, char **argv)
 		value = ft_atoi(argv[i]);
 		if (i == 1)
 		{
-			//burda null donerse program calismaya devame diyor. Bunu engelledik!
 			stack_a = ft_stacknew(value);
 			if (!stack_a)
 				return (NULL);
@@ -81,10 +80,11 @@ t_stack	*fill_stack(int argc, char **argv)
 	return (stack_a);
 }
 
-void	fill_index(t_stack *stack_a, int size, int min)
+void	fill_index(t_stack *stack_a, int size)
 {
 	t_stack	*tmp;
 	t_stack	*max;
+	int		min;
 
 	while (size > 0)
 	{
@@ -99,10 +99,8 @@ void	fill_index(t_stack *stack_a, int size, int min)
 			{
 				min = tmp->value;
 				max = tmp;
-				tmp = tmp->next;
 			}
-			else
-				tmp = tmp->next;
+			tmp = tmp->next;
 		}
 		if (max != NULL)
 			max->index = size;

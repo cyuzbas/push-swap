@@ -6,7 +6,7 @@
 #    By: cyuzbas <cyuzbas@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/30 16:44:44 by cyuzbas       #+#    #+#                  #
-#    Updated: 2022/09/19 17:39:23 by cicekyuzbas   ########   odam.nl          #
+#    Updated: 2022/09/20 17:11:41 by cyuzbas       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,7 @@ NAME	=	push_swap
 
 CC		=	gcc
 
-CFLAGS	=	-Wall -Wextra -Werror 
-#-g -fsanitize=address
+CFLAGS	=	-Wall -Wextra -Werror -g -fsanitize=address
 
 SRCS	=	push_swap.c\
 			check_input.c\
@@ -51,11 +50,11 @@ $(OBJ_DIR):
 	@mkdir -p $@
 
 $(NAME):	$(OBJS)
-	@make -C $(LIBFT_DIR) bonus > /dev/null
+	@make -C $(LIBFT_DIR) > /dev/null
 	$(CC) $(CFLAGS) $^ -o $@ $(LIBFT_DIR)/$(LIBFT)
 	@echo "$(GREEN) Created push_swap executable.$(NORMAL)"
 
-$(OBJS): $(OBJ_DIR)/%.o : %.c $(HEADER_FILES)
+$(OBJS): $(OBJ_DIR)/%.o : %.c $(HEADER)
 	@mkdir -p $(@D)
 	@$(CC) $(FLAGS) -c $< -o $@
 

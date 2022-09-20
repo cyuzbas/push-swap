@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/06 12:06:26 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/16 19:15:26 by cyuzbas       ########   odam.nl         */
+/*   Updated: 2022/09/20 13:30:45 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	fastest_move(t_stack **stack_a, t_stack **stack_b)
 	while (tmp)
 	{
 		total_move = ft_abs(tmp->move_a) + ft_abs(tmp->move_b);
-		if (ft_abs(tmp->move_a) + ft_abs(tmp->move_b) < ft_abs(fastest))
+		if (total_move < ft_abs(fastest))
 		{
 			fastest = total_move;
 			move_a = tmp->move_a;

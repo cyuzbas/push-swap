@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/06 12:06:12 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/19 17:51:28 by cicekyuzbas   ########   odam.nl         */
+/*   Updated: 2022/09/20 12:25:58 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,11 @@ static void	pre_sort(t_stack **stack_a, t_stack **stack_b, int size)
 
 	pushed = 0;
 	i = 0;
-	size = stack_size(*stack_a);
-	while (size > 6 && i < size && pushed < size / 2)
+	while (i < size && pushed < size / 2)
 	{
 		if ((*stack_a)->index <= size / 2)
 		{
 			pb(stack_a, stack_b);
-
 			pushed++;
 		}
 		else

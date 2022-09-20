@@ -6,7 +6,7 @@
 /*   By: cyuzbas <cyuzbas@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/30 16:48:48 by cyuzbas       #+#    #+#                 */
-/*   Updated: 2022/09/19 18:07:11 by cicekyuzbas   ########   odam.nl         */
+/*   Updated: 2022/09/20 16:53:47 by cyuzbas       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	printlist(t_stack *head);
 void	sort_small(t_stack **stack);
 void	sort_large(t_stack **stack_a, t_stack **stack_b, int size);
 
-void	fill_index(t_stack *stack_a, int size, int min);
+void	fill_index(t_stack *stack_a, int size);
 t_stack	*fill_stack(int argc, char **argv);
 t_stack	*ft_stacknew(int value);
 t_stack	*ft_stacklast(t_stack *stack);
@@ -64,6 +64,5 @@ void	rr(t_stack **stack_a, t_stack **stack_b);
 void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
-// void    check_leaks();
 
 #endif

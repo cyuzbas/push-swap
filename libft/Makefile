@@ -6,7 +6,7 @@
 #    By: cyuzbas <cyuzbas@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/10/11 12:51:21 by cyuzbas       #+#    #+#                  #
-#    Updated: 2022/09/15 15:53:03 by cicekyuzbas   ########   odam.nl          #
+#    Updated: 2022/09/20 17:10:49 by cyuzbas       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,35 +22,37 @@ SRCS    	=	ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c \
 				ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c \
 				ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c \
 				ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c \
-				ft_strcmp.c ft_tolower.c ft_toupper.c ft_abs.c
-
-BONUS		=	ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
+				ft_strcmp.c ft_tolower.c ft_toupper.c ft_abs.c\
+				ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
 				ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
 				ft_lstmap.c ft_lstnew.c ft_lstsize.c
 
-ifdef WITH_BONUS
-OBJS = $(SRCS:.c=.o) $(BONUS:.c=.o)
-else
-OBJS = $(SRCS:.c=.o)
-endif
+HEADER		=	libft.h
+
+OBJ_DIR		=	obj
+
+OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
+
+all: $(OBJ_DIR) ${NAME}
+
+$(OBJ_DIR):
+	@mkdir -p $@
 
 ${NAME}: ${OBJS}
 	ar rc ${NAME} ${OBJS}
 
-all: ${NAME}
-
-%.o: %.c
+$(OBJS): $(OBJ_DIR)/%.o : %.c $(HEADER)
+	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
-bonus: 
-		@$(MAKE) WITH_BONUS=1
-
 clean:
-	rm -f $(SRCS:.c=.o) $(BONUS:.c=.o)
+	@rm -rdf $(OBJ_DIR)
+	rm -f $(SRCS:.c=.o)
 
 fclean: clean
+	@rm -rdf $(OBJ_DIR)
 	rm -f ${NAME}
 	
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re 
